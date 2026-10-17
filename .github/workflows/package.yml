@@ -1,0 +1,39 @@
+name: package
+
+# Each version tag packs the library tarball and attaches it to a
+# GitHub Release of the same name. Apps pin the tarball URL of the
+# version they consume.
+on:
+  push:
+    tags:
+      - "v*"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run check
+      - name: Pack the library tarball
+        run: npm pack
+      - name: Attach the tarball to the release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          VERSION=$(node -p "require('./package.json').version")
+          TAG="v$VERSION"
+          TGZ="prayticland-ui-libs-$VERSION.tgz"
+          if gh release view "$TAG" >/dev/null 2>&1; then
+            gh release upload "$TAG" "$TGZ" --clobber
+          else
+            gh release create "$TAG" "$TGZ" --title "$TAG" --notes "prayticland-ui-libs $TAG"
+          fi

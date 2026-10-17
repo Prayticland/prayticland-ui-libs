@@ -1,0 +1,132 @@
+/* Prayticland standard visual rules — owned by prayticland-ui-libs.
+   Originally derived from Gym Tracker; app-specific layout stays in the apps.
+   The palette lives ONLY here (and tokens.json): apps reference the variables. */
+:root {
+  color: #000;
+  background: #fff;
+  font-synthesis: none;
+  --app-text: #000;
+  --app-text-strong: #1a1a1a;
+  --app-background: #fff;
+  --app-surface: #f7f7f7;
+  --app-muted: #545454;
+  --app-border: #d8d8d8;
+  --app-border-strong: #cfcfcf;
+  --app-border-subtle: #e8e8e8;
+  --app-divider: #e2e2e2;
+  --app-error: #b42318;
+  --app-danger: #b00020;
+  /* Semantic success/error surfaces (match/miss language). */
+  --app-success: #0f7b3f;
+  --app-success-bg: #e8f6ec;
+  --app-error-bg: #fdecec;
+  --app-error-border: #f2c9c5;
+  /* Lifegame chart series + scrims (exact values from css/style.css). */
+  --app-activity: #16a34a;
+  --app-reward: #dc2626;
+  --app-backdrop: #0006;
+  --app-shadow-tint: #0001;
+  /* Neutral gray ramp (values harvested from the apps' CSS). */
+  --app-gray-25: #fcfcfc;
+  --app-gray-75: #f6f6f6;
+  --app-gray-50: #fafafa;
+  --app-gray-100: #f4f4f4;
+  --app-gray-125: #f2f2f2;
+  --app-gray-150: #efefef;
+  --app-gray-160: #f0f0f0;
+  --app-gray-175: #eeeeee;
+  --app-gray-190: #ececec;
+  --app-gray-200: #e6e6e6;
+  --app-gray-250: #dedede;
+  --app-gray-300: #bdbdbd;
+  --app-gray-325: #b5b5b5;
+  --app-gray-350: #aaaaaa;
+  --app-gray-400: #a8a8a8;
+  --app-gray-450: #a6a6a6;
+  --app-gray-475: #9ca3af;
+  --app-gray-500: #8a8a8a;
+  --app-gray-525: #8e8e8e;
+  --app-gray-550: #777777;
+  --app-gray-575: #999999;
+  --app-gray-600: #737373;
+  --app-gray-700: #4b4b4b;
+  --app-gray-800: #333333;
+  --app-gray-850: #111111;
+  --app-gray-900: #222222;
+  --app-radius: 12px;
+  --app-width: 680px;
+}
+/* Responsive width steps (Base Web responsive guidelines: mobile-first; the
+   breakpoints mirror the theme's PRAYTICLAND_BREAKPOINTS — small 769 /
+   medium 1024 / large 1216). The content column widens per step instead of
+   stranding desktop viewports with a phone-width stripe; 1200px caps the
+   single-column reading width. Apps consume var(--app-width); they do not
+   hardcode their own column widths. */
+@media screen and (min-width: 769px) { :root { --app-width: 860px; } }
+@media screen and (min-width: 1024px) { :root { --app-width: 1040px; } }
+@media screen and (min-width: 1216px) { :root { --app-width: 1200px; } }
+* { box-sizing: border-box; }
+body { margin: 0; }
+/* The app is a single centered column: never allow horizontal scrolling on any
+   viewport. `clip` avoids creating a scroll container (sticky keeps working);
+   the `hidden` line is the fallback for engines without `clip`. */
+html, body { overflow-x: hidden; overflow-x: clip; }
+button, input, select, textarea { font: inherit; }
+button { cursor: pointer; }
+button:disabled { cursor: default; }
+:focus-visible { outline: 2px solid #000; outline-offset: 3px; }
+.app-shell {
+  min-height: 100dvh;
+  padding: max(48px, env(safe-area-inset-top), var(--app-safe-top, 0px))
+    max(24px, env(safe-area-inset-right), var(--app-safe-right, 0px))
+    max(96px, env(safe-area-inset-bottom), var(--app-safe-bottom, 0px))
+    max(24px, env(safe-area-inset-left), var(--app-safe-left, 0px));
+}
+.app-shell > * { max-width: var(--app-width); margin-left: auto; margin-right: auto; }
+header { margin-bottom: 24px; }
+h1 { font-size: 36px; line-height: 1.1; letter-spacing: -1px; margin: 0 0 8px; }
+h2 { font-size: 24px; line-height: 1.2; margin: 0 0 8px; }
+h3 { font-size: 20px; margin: 0; }
+p, a, h1, h2, h3 { overflow-wrap: anywhere; }
+.hint, .eyebrow, time { color: var(--app-muted); font-size: 14px; }
+.compact-header p { margin: 8px 0 0; line-height: 1.5; }
+.item-list { display: grid; gap: 12px; }
+.item-card { border: 1px solid var(--app-border); border-radius: var(--app-radius); overflow: hidden; }
+.item-row { display: flex; justify-content: space-between; align-items: center; gap: 16px; width: 100%; min-height: 52px; border: 0; background: #fff; color: inherit; padding: 16px; text-align: left; font: inherit; }
+.item-details { border-top: 1px solid var(--app-divider); padding: 16px; }
+.field-label { display: block; margin: 0 0 8px; }
+.actions { display: flex; align-items: center; gap: 16px; margin-top: 16px; }
+.lucide-icon { display: block; width: 24px; height: 24px; flex: 0 0 auto; stroke-width: 2; background: transparent; }
+.icon-button, .icon-button:hover, .icon-button:focus, .icon-button:active, .icon-button:disabled { background: transparent !important; }
+.text-icon-button { display: flex !important; align-items: center; gap: 8px; }
+.markdown { font-size: 16px; line-height: 1.6; }
+.markdown h1 { margin-top: 0; }
+.markdown a { color: inherit; }
+[role="alert"] { color: var(--app-error); }
+@media (max-width: 480px) {
+  .app-shell { padding: max(40px, env(safe-area-inset-top), var(--app-safe-top, 0px)) max(16px, env(safe-area-inset-right), var(--app-safe-right, 0px)) max(80px, env(safe-area-inset-bottom), var(--app-safe-bottom, 0px)) max(16px, env(safe-area-inset-left), var(--app-safe-left, 0px)); }
+}
+.telegram .app-shell { padding-top: calc(40px + var(--app-safe-top, 0px)); padding-bottom: calc(80px + var(--app-safe-bottom, 0px)); }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; animation: none !important; } }
+
+/* Swipe rail (SwipeRail component; Gym's navigation model): a horizontal
+   scroll-snap rail whose pages are top-level views. Each page is one
+   viewport wide and scrolls vertically on its own; the scrollbar hides. */
+.swipe-rail { display: flex; width: 100%; height: 100dvh; overflow-x: auto; overflow-y: hidden; scroll-snap-type: x mandatory; scrollbar-width: none; }
+.swipe-rail::-webkit-scrollbar { display: none; }
+.swipe-view { position: relative; flex: 0 0 100%; height: 100%; min-height: 0; scroll-snap-align: start; overflow-x: hidden; overflow-y: auto; -webkit-overflow-scrolling: touch; }
+
+/* Status blocks: the loading / error / empty visual language (StateBlock). */
+.status-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 48px 0;
+  color: var(--app-muted);
+}
+
+.status-block .lucide-icon {
+  vertical-align: -4px;
+  margin-right: 4px;
+}
