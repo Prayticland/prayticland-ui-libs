@@ -30,3 +30,12 @@ hardcode
 npm
 typechecks
 viewport
+Praytic
+unspaced
+Networker
+vw
+monospace
+breakpoint
+breakpoints
+mediaQuery
+createTheme

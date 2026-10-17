@@ -1,4 +1,4 @@
-// AppProviders — the fleet provider composition: one Styletron engine
+// AppProviders—the fleet provider composition: one Styletron engine
 // shared across renders, BaseProvider carrying the library theme. Extracted
 // from the identical Gallery/Stamps AppProviders.tsx (originally derived
 // from Gym Tracker); every app mounts this instead of hand-rolling its own.

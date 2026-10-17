@@ -1,4 +1,4 @@
-// Prayticland theme factory — the ONE place the fleet theme is created
+// Prayticland theme factory—the ONE place the fleet theme is created
 // (the theme is created in the library, never in an app).
 //
 // Extracted verbatim from the six identical per-app theme.ts copies
@@ -18,8 +18,8 @@ export interface PrayticlandThemeOptions {
   breakpoints?: typeof PRAYTICLAND_BREAKPOINTS;
 }
 
-// Responsive contract (Base Web "Building Responsive Apps with Base Web",
-// https://baseweb.design/blog/responsive-web/): mobile-first — base styles
+// Responsive contract (Base Web "Building Responsive Apps with Base Web,"
+// https://baseweb.design/blog/responsive-web/): mobile-first—base styles
 // are the phone layout; larger screens are enhancements keyed off these
 // theme breakpoints. The theme carries both the breakpoint values and the
 // generated min-width mediaQuery strings, so styled components use

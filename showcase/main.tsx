@@ -1,4 +1,4 @@
-// Showcase — the visual regression surface for the whole fleet:
+// Showcase—the visual regression surface for the whole fleet:
 // every library export rendered against the library theme in one page.
 import React, {useState} from 'react';
 import {createRoot} from 'react-dom/client';
@@ -51,7 +51,7 @@ function ResponsiveDemo() {
   return (
     <>
       <ParagraphLarge>
-        Theme breakpoints — small: {theme.breakpoints.small}, medium: {theme.breakpoints.medium},
+        Theme breakpoints—small: {theme.breakpoints.small}, medium: {theme.breakpoints.medium},
         large: {theme.breakpoints.large}. Media query (small): {theme.mediaQuery.small}
       </ParagraphLarge>
       <Block
@@ -77,7 +77,7 @@ function ResponsiveDemo() {
 }
 
 // Navigation demo: the Stamps floating-round BottomNav paired with the Gym
-// SwipeRail — swipe the panels or tap the buttons; both stay in sync. The
+// SwipeRail—swipe the panels or tap the buttons; both stay in sync. The
 // gold circle is an app-specific extra action (NavCircleButton).
 const NAV_PAGES = [
   {id: 'album', label: 'Album', Icon: Album},
@@ -125,7 +125,7 @@ function App() {
         <p className="eyebrow">prayticland-ui-libs · showcase</p>
         <DisplayLarge>prayticland-ui-libs</DisplayLarge>
         <ParagraphLarge>
-          Theme, providers, fonts, tokens, overrides and components — rendered once, for every app.
+          Theme, providers, fonts, tokens, overrides and components—rendered once, for every app.
         </ParagraphLarge>
       </header>
 
@@ -133,8 +133,8 @@ function App() {
       <Swatches />
 
       <h2>Typography (Nunito Sans via the library theme)</h2>
-      <HeadingLarge>HeadingLarge — the quick brown fox</HeadingLarge>
-      <ParagraphLarge>ParagraphLarge — jumps over the lazy dog. 0123456789</ParagraphLarge>
+      <HeadingLarge>HeadingLarge—the quick brown fox</HeadingLarge>
+      <ParagraphLarge>ParagraphLarge—jumps over the lazy dog. 0123456789</ParagraphLarge>
 
       <h2>Buttons</h2>
       <div className="actions">
@@ -150,7 +150,7 @@ function App() {
       <h2>StateBlock</h2>
       <StateBlock status="loading" label="Loading demo" />
       <StateBlock status="error" message="Something failed, as it does." onRetry={() => {}} />
-      <StateBlock status="empty">Nothing here yet — the empty state.</StateBlock>
+      <StateBlock status="empty">Nothing here yet—the empty state.</StateBlock>
 
       <h2>Responsive (Base Web guidelines)</h2>
       <ResponsiveDemo />

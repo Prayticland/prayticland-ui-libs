@@ -1,4 +1,4 @@
-// Shared composite components — patterns proven in ≥2 apps, promoted
+// Shared composite components—patterns proven in ≥2 apps, promoted
 // into the library on adoption. StateBlock (v0.1.0); BottomNav +
 // NavCircleButton + SwipeRail (v0.3.0, Stamps' floating-round nav design +
 // Gym's swipe rail, adopted fleet-wide 2026-10-17).
@@ -9,7 +9,7 @@ import {Spinner} from 'baseui/spinner';
 import {TriangleAlert} from 'lucide-react';
 
 /**
- * StateBlock — the fleet's loading / error / empty visual language (Gallery's
+ * StateBlock—the fleet's loading / error / empty visual language (Gallery's
  * and Stamps' `.status-block` sections; Networker's StateBlocks). Renders:
  *  - status="loading": a spinner block (aria-busy), optional label for AT
  *  - status="error":   alert role, warning icon + message + optional Retry
@@ -60,9 +60,9 @@ import type {CSSProperties} from 'react';
 import type {LucideIcon} from 'lucide-react';
 
 /**
- * NavCircleButton + BottomNav — the fleet's bottom page navigation
+ * NavCircleButton + BottomNav—the fleet's bottom page navigation
  * (Stamps' design, adopted fleet-wide): floating round buttons,
- * one per page, no bar and no text — the active page is a filled circle,
+ * one per page, no bar and no text—the active page is a filled circle,
  * the others outlined. Theme-driven ($theme tokens only, Stamps verbatim).
  * The container's transform promotes it to a composited layer so it stays
  * glued to the viewport bottom while content scrolls underneath. Apps with
@@ -85,7 +85,7 @@ export function NavCircleButton({
   onClick?: () => void;
   backgroundColor?: string;
   color?: string;
-  /** Rendered as data-testid — the apps' e2e suites address nav buttons by it. */
+  /** Rendered as data-testid—the apps' e2e suites address nav buttons by it. */
   testId?: string;
   children: ReactNode;
 }) {
@@ -185,7 +185,7 @@ export function BottomNav({
 }
 
 /**
- * SwipeRail — Gym's gesture navigation model: a horizontal
+ * SwipeRail—Gym's gesture navigation model: a horizontal
  * scroll-snap rail whose pages are the app's top-level views; swiping
  * moves between views, and the index stays in sync both ways (a BottomNav
  * tap scrolls the rail; a swipe reports the settled page). Each page

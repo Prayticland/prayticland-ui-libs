@@ -5,7 +5,7 @@
 // Extraction rule for new entries: copy the proven app code verbatim, name
 // the pattern, note the source apps in the comment.
 
-// modalScrimOverrides — the fleet modal/viewer scrim (source: Gallery's
+// modalScrimOverrides—the fleet modal/viewer scrim (source: Gallery's
 // create/edit Modal, main.tsx; Stamps' viewer uses the sibling pattern).
 // Base Web merges DialogContainer over the scrim, so the full-viewport
 // positioning lives here: blurred translucent backdrop; on mobile the
